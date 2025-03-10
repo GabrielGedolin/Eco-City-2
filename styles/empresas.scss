@@ -1,0 +1,72 @@
+// styles/pages/_empresas.scss
+@import "./variables.scss";
+
+.empresas {
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .empresas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+
+    .empresa-card {
+      background-color: $card-background;
+      border-radius: 10px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease-in-out;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: $primary-color;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// Media Queries para Responsividade
+@media (max-width: 768px) {
+  .empresas {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .empresas-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .empresas {
+    padding: 1rem 0.5rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .empresas-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

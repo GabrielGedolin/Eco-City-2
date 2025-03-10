@@ -1,0 +1,79 @@
+// styles/pages/_contato.scss
+@import "./variables.scss";
+
+.contato {
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .contato-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: $card-background;
+    border-radius: 10px;
+    padding: 2rem;
+    animation: fadeIn 1s ease-in-out;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: $primary-color;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+// Media Queries para Responsividade
+@media (max-width: 768px) {
+  .contato {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .contato-form {
+      padding: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contato {
+    padding: 1rem 0.5rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .contato-form {
+      padding: 1rem;
+    }
+  }
+}

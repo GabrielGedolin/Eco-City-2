@@ -1,0 +1,42 @@
+# Dependências
+/node_modules
+/.pnp
+.pnp.js
+
+# Ambiente de desenvolvimento
+/.next
+/out
+
+# Arquivos de ambiente
+.env*.local
+.env
+
+# Logs e cache
+/.cache
+/.logs
+*.log
+
+# Configurações do IDE
+/.idea
+/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de build
+/build
+/dist
+
+# Testes
+/coverage
+/.nyc_output
+
+# Outros
+.next
+.next/*
