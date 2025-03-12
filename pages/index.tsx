@@ -4,7 +4,7 @@ import Footer from '../components/footer';
 
 const Home = () => {
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "198.5vh" }}>
       {/* Adicionando o Bootstrap via CDN */}
       <Head>
         <link
@@ -47,7 +47,7 @@ const Home = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/zonas">
-                  Pontos de Coleta
+                  Zonas de adoção
                 </a>
               </li>
               <li className="nav-item">
@@ -61,124 +61,44 @@ const Home = () => {
       </nav>
 
       {/* Hero Section */}
-      <section
-        className="hero-section"
-        style={{
-          height: "100vh",
-          backgroundColor: "#28a745",
-          color: "white",
-<<<<<<< HEAD
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          paddingTop: "60px",
-        }}
-      >
-        <div className="container">
-          <h1 className="hero-title">
-            <span className="gradient-text">
-              Transforme sua cidade
-            </span>
-            <br />
-            com o <span className="gradient-text">Eco City</span>
-=======
-        }}
-      >
-        <div className="container text-center">
-          <style jsx>{`
-            @keyframes typing {
-              from { width: 0; }
-              to { width: 100%; }
-            }
+        <section
+    className="hero-section"
+    style={{
+      height: "100vh",
+      backgroundColor: "#28a745",
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      paddingTop: "60px",
+    }}
+  >
+    <div className="container">
+      <h1 className="hero-title display-3 display-md-2 display-lg-1">
+        <span className="gradient-text">Transforme sua cidade</span>
+        <br />
+        com o <span className="gradient-text">Eco City</span>
+      </h1>
 
-            @keyframes blink-caret {
-              50% { border-color: transparent; }
-            }
+      {/* Texto com efeito de digitação */}
+      <div id='texto' className="typing-container text-center mx-2 mx-md-0">
+        <p className="typing-text">
+          Discarte os resíduos corretamente, promova a sustentabilidade.
+        </p>
+      </div>
 
-            .typing-container {
-              display: inline-block;
-              position: relative;
-            }
-
-            .typing-text {
-              display: inline-block;
-              overflow: hidden;
-              white-space: nowrap;
-              border-right: 0.15em solid rgb(21, 255, 0);
-              animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-              font-family: monospace;
-            }
-
-            .botao {
-              margin: 10px;
-              background-color: green;
-              color: white;
-              text-decoration: none;
-              border-radius: 5px;
-              font-weight: bold;
-              transition: background-color 0.3s ease;
-              padding: 0.8rem 1.5rem;
-              display: inline-block;
-              border: none;
-              cursor: pointer;
-            }
-
-            .botao:hover {
-              background-color: darkgreen;
-            }
-
-            .card-hover-effect {
-              transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            .card-hover-effect:hover {
-              transform: translateY(-10px);
-              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
-          `}</style>
-
-          <h1 className="display-4">
-            <span style={{
-              backgroundImage: "linear-gradient(to right, white, rgb(21, 255, 0))",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent"
-            }}>
-              Transforme sua cidade
-            </span>
-            <br />
-            com o <span style={{
-              backgroundImage: "linear-gradient(to left, white, rgb(21, 255, 0))",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent"
-            }}>Eco City</span>
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
-          </h1>
-
-          <div className="typing-container">
-            <p className="typing-text">
-              Discarte os resíduos corretamente, promova a sustentabilidade.
-            </p>
-          </div>
-          <br />
-<<<<<<< HEAD
-          <div className="">
-            <a href="/pontos" className="botao">
-              Explorar Pontos de Coleta
-            </a>
-            <a href="/zonas" className="botao m-3">
-=======
-          <div className="d-flex flex-column flex-md-row justify-content-center">
-            <a href="/pontos" className="botao">
-              Explorar Pontos de Coleta
-            </a>
-            <a href="/zonas" className="botao">
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
-              Explorar Zonas Verdes
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Botões */}
+      <div className="d-flex flex-column flex-md-row justify-content-center mt-4">
+        <a href="/pontos" className="btn btn-success btn-lg me-md-3 mb-3 mb-md-0">
+          Explorar Pontos de Coleta
+        </a>
+        <a href="/zonas" className="btn btn-success btn-lg">
+          Explorar Zonas Verdes
+        </a>
+      </div>
+    </div>
+  </section>
 
       {/* Features Section */}
       <section
@@ -186,40 +106,16 @@ const Home = () => {
         style={{
           backgroundColor: "#000000",
           color: "white",
-<<<<<<< HEAD
           padding: "80px 0",
-          minHeight: "100vh",
+          height: "90vh",
+          paddingTop: "100px", // Adiciona espaço para o Navbar
         }}
       >
-        <h1 className="features-title">
-=======
-          backgroundImage: "url('/path/to/your/pattern.png')",
-          backgroundRepeat: "repeat",
-          backgroundSize: "auto",
-          minHeight: "100vh",
-        }}
-      >
-        <h1
-          style={{
-            fontFamily: "monospace",
-          }}
-          className="text-center mb-5"
-        >
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
+        <h1 className="features-title text-center mb-5">
           O que oferecemos?
         </h1>
 
         <div className="container">
-<<<<<<< HEAD
-          {/* Linha 1: 3 cards */}
-          <div className="row justify-content-center mb-4">
-            {/* Card 1 - Adoção de Áreas Verdes */}
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="card-content">
-                  <h3>Adote uma Área Verde</h3>
-                  <p>
-=======
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {/* Card 1 - Adoção de Áreas Verdes */}
             <div className="col">
@@ -227,7 +123,6 @@ const Home = () => {
                 <div className="card-body text-white d-flex flex-column align-items-center text-center">
                   <h3 className="card-title">Adote uma Área Verde</h3>
                   <p className="card-text">
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
                     Empresas, adotem uma área verde e contribua para a preservação do meio ambiente.
                   </p>
                   <a href="/adocao" className="btn btn-success">
@@ -238,19 +133,11 @@ const Home = () => {
             </div>
 
             {/* Card 2 - Pontos de Coleta de Reciclagem */}
-<<<<<<< HEAD
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="card-content">
-                  <h3>Pontos de Coleta</h3>
-                  <p>
-=======
             <div className="col">
               <div className="card border-0 shadow-sm h-100 bg-success card-hover-effect" style={{ background: "linear-gradient(135deg, #1e7e34, #28a745)" }}>
                 <div className="card-body text-white d-flex flex-column align-items-center text-center">
                   <h3 className="card-title">Pontos de Coleta</h3>
                   <p className="card-text">
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
                     Encontre os pontos de coleta de reciclagem mais próximos de você.
                   </p>
                   <a href="/pontos-de-coleta" className="btn btn-success">
@@ -261,19 +148,11 @@ const Home = () => {
             </div>
 
             {/* Card 3 - Benefícios da Adoção */}
-<<<<<<< HEAD
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="card-content">
-                  <h3>Benefícios da Adoção</h3>
-                  <p>
-=======
             <div className="col">
               <div className="card border-0 shadow-sm h-100 bg-success card-hover-effect" style={{ background: "linear-gradient(135deg, #1e7e34, #28a745)" }}>
                 <div className="card-body text-white d-flex flex-column align-items-center text-center">
                   <h3 className="card-title">Benefícios da Adoção</h3>
                   <p className="card-text">
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
                     Ao adotar uma área verde, sua empresa recebe selos de sustentabilidade.
                   </p>
                   <a href="/beneficios" className="btn btn-success">
@@ -282,24 +161,13 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Linha 2: 3 cards */}
-          <div className="row justify-content-center">
             {/* Card 4 - Eventos de Sustentabilidade */}
-<<<<<<< HEAD
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="card-content">
-                  <h3>Eventos de Sustentabilidade</h3>
-                  <p>
-=======
             <div className="col">
               <div className="card border-0 shadow-sm h-100 bg-success card-hover-effect" style={{ background: "linear-gradient(135deg, #1e7e34, #28a745)" }}>
                 <div className="card-body text-white d-flex flex-column align-items-center text-center">
                   <h3 className="card-title">Eventos de Sustentabilidade</h3>
                   <p className="card-text">
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
                     Participe de eventos de plantio, limpeza e conscientização ambiental.
                   </p>
                   <a href="/eventos" className="btn btn-success">
@@ -310,19 +178,11 @@ const Home = () => {
             </div>
 
             {/* Card 5 - Impacto Gerado */}
-<<<<<<< HEAD
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="card-content">
-                  <h3>Impacto Gerado</h3>
-                  <p>
-=======
             <div className="col">
               <div className="card border-0 shadow-sm h-100 bg-success card-hover-effect" style={{ background: "linear-gradient(135deg, #1e7e34, #28a745)" }}>
                 <div className="card-body text-white d-flex flex-column align-items-center text-center">
                   <h3 className="card-title">Impacto Gerado</h3>
                   <p className="card-text">
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
                     Veja o impacto positivo que sua empresa ou comunidade está gerando.
                   </p>
                   <a href="/impacto" className="btn btn-success">
@@ -333,23 +193,15 @@ const Home = () => {
             </div>
 
             {/* Card 6 - Cadastre-se */}
-<<<<<<< HEAD
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="card-content">
-                  <h3>Cadastre-se</h3>
-                  <p>
-=======
             <div className="col">
               <div className="card border-0 shadow-sm h-100 bg-success card-hover-effect" style={{ background: "linear-gradient(135deg, #1e7e34, #28a745)" }}>
                 <div className="card-body text-white d-flex flex-column align-items-center text-center">
                   <h3 className="card-title">Cadastre-se</h3>
                   <p className="card-text">
->>>>>>> 5de312c3389206e705312bdf7feba63c1e245a12
-                    Empresas e cidadãos, cadastre-se na plataforma e comece a fazer parte dessa mudança.
+                    Mapa para vizualizar pontos de coleta.
                   </p>
-                  <a href="/cadastro" className="btn btn-success">
-                    Cadastre-se Agora
+                  <a href="/mapa" className="btn btn-success">
+                    Ver Mapa
                   </a>
                 </div>
               </div>
@@ -366,9 +218,8 @@ const Home = () => {
         body, html {
           margin: 0;
           padding: 0;
-          overflow-x: hidden; /* Impede o scroll horizontal */
-          width: 100vw;
-          height: 100vh;
+          width: 100%; /* Use 100% em vez de 100vw para evitar problemas */
+          height: auto; /* Permite que a página cresça conforme o conteúdo */
         }
 
         nav {
@@ -396,36 +247,32 @@ const Home = () => {
         .typing-container {
           display: inline-block;
           position: relative;
+          max-width: 100%; /* Limita a largura do container */
+          overflow: hidden; /* Esconde o texto que ultrapassar os limites */
+          padding: 0 10px; /* Adiciona um pequeno padding nas laterais */
         }
 
         .typing-text {
           display: inline-block;
+          white-space: nowrap; /* Mantém o texto em uma única linha */
           overflow: hidden;
-          white-space: nowrap;
-          border-right: 0.15em solid rgb(21, 255, 0);
+          text-overflow: ellipsis; /* Adiciona reticências se o texto não couber */
+          border-right: 0.15em solid rgb(21, 255, 0); /* Cor do cursor */
           animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
           font-family: monospace;
-          font-size: 1.5rem;
-          margin-bottom: 2rem;
+          font-size: clamp(1rem, 4vw, 1.5rem); /* Tamanho da fonte responsivo */
         }
 
-        /* Animações */
+        /* Animação de digitação */
         @keyframes typing {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%;
-          }
+          from { width: 0; }
+          to { width: 100%; }
         }
 
+        /* Animação do cursor */
         @keyframes blink-caret {
-          from, to {
-            border-color: transparent;
-          }
-          50% {
-            border-color: rgb(21, 255, 0);
-          }
+          from, to { border-color: transparent; }
+          50% { border-color: rgb(21, 255, 0); }
         }
 
         .button-container {
@@ -436,6 +283,8 @@ const Home = () => {
         }
 
         .botao {
+          margin-top:10px;
+          margin-left:10px;
           background-color: green;
           color: white;
           text-decoration: none;
@@ -485,7 +334,10 @@ const Home = () => {
           .hero-title {
             font-size: 2rem;
           }
-
+          #texto {
+            width:300px;
+            white-space:rap;
+          }
           .typing-text {
             font-size: 1.2rem;
           }
