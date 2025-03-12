@@ -4,7 +4,7 @@ import Footer from '../components/footer';
 
 const Home = () => {
   return (
-    <div style={{ height: "198.5vh" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Adicionando o Bootstrap via CDN */}
       <Head>
         <link
@@ -61,54 +61,58 @@ const Home = () => {
       </nav>
 
       {/* Hero Section */}
-        <section
-    className="hero-section"
-    style={{
-      height: "100vh",
-      backgroundColor: "#28a745",
-      color: "white",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      textAlign: "center",
-      paddingTop: "60px",
-    }}
-  >
-    <div className="container">
-      <h1 className="hero-title display-3 display-md-2 display-lg-1">
-        <span className="gradient-text">Transforme sua cidade</span>
-        <br />
-        com o <span className="gradient-text">Eco City</span>
-      </h1>
+      <section
+        className="hero-section"
+        style={{
+          minHeight: "100vh",
+          height: "auto",
+          backgroundColor: "#28a745",
+          color: "white",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          paddingTop: "60px",
+          paddingBottom: "40px",
+        }}
+      >
+        <div className="container">
+          <h1 className="hero-title display-3 display-md-2 display-lg-1">
+            <span className="gradient-text">Transforme sua cidade</span>
+            <br />
+            com o <span className="gradient-text">Eco City</span>
+          </h1>
 
-      {/* Texto com efeito de digitação */}
-      <div id='texto' className="typing-container text-center mx-2 mx-md-0">
-        <p className="typing-text">
-          Discarte os resíduos corretamente, promova a sustentabilidade.
-        </p>
-      </div>
+          {/* Texto com efeito de digitação */}
+          <div id='div-texto' className="typing-container text-center mx-2 mx-md-0">
+            <p id='texto' className="typing-text">
+              Discarte os resíduos corretamente, promova a sustentabilidade.
+            </p>
+          </div>
 
-      {/* Botões */}
-      <div className="d-flex flex-column flex-md-row justify-content-center mt-4">
-        <a href="/pontos" className="btn btn-success btn-lg me-md-3 mb-3 mb-md-0">
-          Explorar Pontos de Coleta
-        </a>
-        <a href="/zonas" className="btn btn-success btn-lg">
-          Explorar Zonas Verdes
-        </a>
-      </div>
-    </div>
-  </section>
+          {/* Botões */}
+          <div className="d-flex flex-column flex-md-row justify-content-center mt-4">
+            <a href="/pontos" className="btn btn-success btn-lg me-md-3 mb-3 mb-md-0">
+              Explorar Pontos de Coleta
+            </a>
+            <a href="/zonas" className="btn btn-success btn-lg">
+              Explorar Zonas Verdes
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section
+        id='features'
         className="features-section"
         style={{
           backgroundColor: "#000000",
           color: "white",
           padding: "80px 0",
-          height: "90vh",
-          paddingTop: "100px", // Adiciona espaço para o Navbar
+          minHeight: "90vh",
+          height: "auto",
+          paddingTop: "100px",
         }}
       >
         <h1 className="features-title text-center mb-5">
@@ -117,8 +121,7 @@ const Home = () => {
 
         <div className="container">
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {/* Card 1 - Adoção de Áreas Verdes */}
-            <div className="col">
+          <div className="col">
               <div className="card border-0 shadow-sm h-100 bg-success card-hover-effect" style={{ background: "linear-gradient(135deg, #1e7e34, #28a745)" }}>
                 <div className="card-body text-white d-flex flex-column align-items-center text-center">
                   <h3 className="card-title">Adote uma Área Verde</h3>
@@ -218,8 +221,8 @@ const Home = () => {
         body, html {
           margin: 0;
           padding: 0;
-          width: 100%; /* Use 100% em vez de 100vw para evitar problemas */
-          height: auto; /* Permite que a página cresça conforme o conteúdo */
+          width: 100%;
+          height: auto;
         }
 
         nav {
@@ -247,29 +250,26 @@ const Home = () => {
         .typing-container {
           display: inline-block;
           position: relative;
-          max-width: 100%; /* Limita a largura do container */
-          overflow: hidden; /* Esconde o texto que ultrapassar os limites */
-          padding: 0 10px; /* Adiciona um pequeno padding nas laterais */
+          max-width: 100%;
+          overflow: hidden;
+          padding: 0 10px;
         }
 
         .typing-text {
           display: inline-block;
-          white-space: nowrap; /* Mantém o texto em uma única linha */
+          white-space: nowrap;
           overflow: hidden;
-          text-overflow: ellipsis; /* Adiciona reticências se o texto não couber */
-          border-right: 0.15em solid rgb(21, 255, 0); /* Cor do cursor */
-          animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+          border-right: 0.15em solid rgb(21, 255, 0);
           font-family: monospace;
-          font-size: clamp(1rem, 4vw, 1.5rem); /* Tamanho da fonte responsivo */
+          font-size: clamp(1rem, 4vw, 1.5rem);
+          animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
         }
 
-        /* Animação de digitação */
         @keyframes typing {
           from { width: 0; }
           to { width: 100%; }
         }
 
-        /* Animação do cursor */
         @keyframes blink-caret {
           from, to { border-color: transparent; }
           50% { border-color: rgb(21, 255, 0); }
@@ -330,14 +330,22 @@ const Home = () => {
         }
 
         /* Responsividade com @media */
+        @media (max-width: 991px) {
+          #texto {
+            white-space: normal; /* Permite que o texto quebre em várias linhas */
+          }
+
+          #div-texto {
+            width: 90%; /* Ajusta a largura do container */
+            max-width: 90%; /* Limita a largura máxima */
+          }
+        }
+
         @media (max-width: 768px) {
           .hero-title {
             font-size: 2rem;
           }
-          #texto {
-            width:300px;
-            white-space:rap;
-          }
+
           .typing-text {
             font-size: 1.2rem;
           }
@@ -370,25 +378,6 @@ const Home = () => {
           }
         }
 
-        @media (max-width: 425px) {
-          .hero-title {
-            font-size: 1.6rem;
-          }
-
-          .typing-text {
-            font-size: 0.9rem;
-          }
-
-          .botao {
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-          }
-
-          .feature-card {
-            margin-bottom: 15px;
-          }
-        }
-
         @media (max-width: 375px) {
           .hero-title {
             font-size: 1.5rem;
@@ -404,7 +393,7 @@ const Home = () => {
           }
 
           .feature-card {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
           }
         }
 
