@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <>
-      <Head>
+      <Head>     
         {/* Remova os links de estilo daqui */}
         <title>ECO CITY</title>
         <meta charSet="utf-8" />
@@ -58,11 +58,7 @@ const Home = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" href="/">
-                    Home
-                  </Link>
-                </li>
+                
                 <li className="nav-item">
                   <Link className="nav-link" href="/sobre">
                     Sobre
@@ -384,7 +380,7 @@ const Home = () => {
               <div className="row gy-5">
                 <div className="col-lg-3 col-sm-6">
                   <a href="#">
-                    <img src="/assets/images/logo1.png" alt="ECO CITY Logo" />
+                    <img src="/img  /logo1.png" alt="ECO CITY Logo" />
                   </a>
                   <div className="line"></div>
                   <p>ECO CITY sempre buscando o melhor pra você e para o Mundo.</p>
@@ -399,16 +395,16 @@ const Home = () => {
                   <div className="line"></div>
                   <ul>
                     <li>
-                      <a href="#">Mapa Interativo</a>
+                      <a href="/mapa">Mapa Interativo</a>
                     </li>
                     <li>
-                      <a href="#">Reciclagem</a>
+                      <a href="/reciclagem">Reciclagem</a>
                     </li>
                     <li>
-                      <a href="#">Denúncias</a>
+                      <a href="/denuncias">Denúncias</a>
                     </li>
                     <li>
-                      <a href="#">Blog</a>
+                      <a href="/blog">Blog</a>
                     </li>
                   </ul>
                 </div>
@@ -417,13 +413,10 @@ const Home = () => {
                   <div className="line"></div>
                   <ul>
                     <li>
-                      <a href="#">Home</a>
+                      <a href="/serviços">Serviços</a>
                     </li>
                     <li>
-                      <a href="#">Serviçoes</a>
-                    </li>
-                    <li>
-                      <a href="#">Compania</a>
+                      <a href="/compania">Compania</a>
                     </li>
                     <li>
                       <a href="/sobre">Sobre</a>
