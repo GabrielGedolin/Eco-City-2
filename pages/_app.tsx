@@ -1,10 +1,12 @@
 import type { AppProps } from 'next/app';
 import React from 'react';
+import "../public/style/style.css"
+import "../public/style/clash-display.css"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="w-100 min-vh-100 d-flex flex-column overflow-hidden">
-      <main className="flex-grow-1">
+    <div className="">
+      <main className="">
         <Component {...pageProps} />
       </main>
     </div>
