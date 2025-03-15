@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // Carrega o componente do mapa dinamicamente (apenas no cliente)
-const MapComponent = dynamic(() => import('../components/MapaComponent'), { ssr: false });
+const MapComponent = dynamic(() => import('../components/MapaComponent-zonas'), { ssr: false });
 
 const Home = () => {
   useEffect(() => {
@@ -380,7 +380,7 @@ const Home = () => {
               <div className="row gy-5">
                 <div className="col-lg-3 col-sm-6">
                   <a href="#">
-                    <img src="/img  /logo1.png" alt="ECO CITY Logo" />
+                    <img src="/img/logo1.png" alt="ECO CITY Logo" />
                   </a>
                   <div className="line"></div>
                   <p>ECO CITY sempre buscando o melhor pra você e para o Mundo.</p>
@@ -395,14 +395,15 @@ const Home = () => {
                   <div className="line"></div>
                   <ul>
                     <li>
-                      <a href="/mapa">Mapa Interativo</a>
+                      <a href="/mapa-zonas">Mapa - Áreas verdes</a>
                     </li>
                     <li>
-                      <a href="/reciclagem">Reciclagem</a>
+                      <a href="/denuncias">Denuncias</a>
                     </li>
                     <li>
-                      <a href="/denuncias">Denúncias</a>
+                      <a href="/mapa">Mapa - Pontos de Coleta</a>
                     </li>
+                   
                     <li>
                       <a href="/blog">Blog</a>
                     </li>
@@ -412,12 +413,7 @@ const Home = () => {
                   <h5 className="mb-0 text-white">SOBRE</h5>
                   <div className="line"></div>
                   <ul>
-                    <li>
-                      <a href="/serviços">Serviços</a>
-                    </li>
-                    <li>
-                      <a href="/compania">Compania</a>
-                    </li>
+                    
                     <li>
                       <a href="/sobre">Sobre</a>
                     </li>
