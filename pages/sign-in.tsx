@@ -91,7 +91,7 @@ export default function LoginPage() {
                                 </div>
                                 <div className="forgot">
                                     <small>
-                                        <Link href="#">Forgot Password?</Link>
+                                        <Link href="/recuperar-senha">Forgot Password?</Link>
                                     </small>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@ export default function LoginPage() {
                             </div>
                             <div className="row">
                                 <small>
-                                    Don't have account? <Link href="/sign-in">Sign Up</Link>
+                                    Don't have account? <Link href="/sign-up">Sign Up</Link>
                                 </small>
                             </div>
                         </div>

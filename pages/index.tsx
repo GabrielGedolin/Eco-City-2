@@ -70,12 +70,12 @@ const Home = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" href="/login">
+                  <Link className="nav-link" href="/sign-in">
                     Sing In
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" href="#blog">
+                  <Link className="nav-link" href="/sign-up">
                     Sing Up
                   </Link>
                 </li>
