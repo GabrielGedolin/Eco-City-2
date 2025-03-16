@@ -389,7 +389,7 @@ const Home = () => {
               <div className="row gy-5">
                 <div className="col-lg-3 col-sm-6">
                   <a href="#">
-                    <img src="/img/logo1.png" alt="ECO CITY Logo" />
+                    <img src="/img/Logo1.png" alt="ECO CITY Logo" />
                   </a>
                   <div className="line"></div>
                   <p>ECO CITY sempre buscando o melhor pra você e para o Mundo.</p>
