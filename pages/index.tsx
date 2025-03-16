@@ -1,49 +1,58 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Script from 'next/script';
 import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import withAuth from '../components/withAuth';
+import 'aos/dist/aos.css';
+import AOS from 'aos'; // Importação correta do AOS
 
 // Carrega o componente do mapa dinamicamente (apenas no cliente)
 const MapComponent = dynamic(() => import('../components/MapaComponent-zonas'), { ssr: false });
 
 const Home = () => {
+  // Inicializa o AOS apenas no lado do cliente
   useEffect(() => {
-    // Verifica se está no cliente antes de carregar o AOS
-    if (typeof window !== 'undefined') {
-      const AOS = require('aos');
-      AOS.init({
-        offset: 120,
-        delay: 0,
-        duration: 900,
-        easing: 'ease',
-        once: false,
-        mirror: false,
-        anchorPlacement: 'top-bottom',
-      });
-    }
+    AOS.init({
+      offset: 120,
+      delay: 0,
+      duration: 900,
+      easing: 'ease',
+      once: false,
+      mirror: false,
+      anchorPlacement: 'top-bottom',
+    });
+
+    // Função de limpeza para atualizar o AOS ao desmontar o componente
+    return () => {
+      AOS.refresh();
+    };
   }, []);
 
   return (
     <>
-      <Head>     
-        {/* Remova os links de estilo daqui */}
+      <Head>
         <title>ECO CITY</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="../public/img/Logo1.png" />
+        <link rel="icon" href="/img/Logo1.png" /> {/* Caminho corrigido */}
       </Head>
 
-      <body data-bs-spy="scroll" data-bs-target=".navbar">
+      {/* Scripts usando o componente <Script> do Next.js */}
+      <Script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" strategy="afterInteractive" />
+      <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
+      <Script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" strategy="afterInteractive" />
+      <Script src="https://kit.fontawesome.com/3a47ab78fd.js" strategy="afterInteractive" />
+
+      {/* Conteúdo principal */}
+      <main data-bs-spy="scroll" data-bs-target=".navbar">
         {/* NAVBAR */}
         <nav className="navbar navbar-expand-lg sticky-top bg-light bg-opacity-50">
           <div className="container">
-            <Link href="/" passHref className='navbar-brand'>
-              
-                <img src="/img/Logo1.png" 
-                  alt="ECO CITY Logo"
-                />
+            <Link href="/" passHref className="navbar-brand">
+              <img src="/img/Logo1.png" alt="ECO CITY Logo" />
             </Link>
             <button
               className="navbar-toggler"
@@ -58,7 +67,6 @@ const Home = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
-                
                 <li className="nav-item">
                   <Link className="nav-link" href="/sobre">
                     Sobre
@@ -175,7 +183,7 @@ const Home = () => {
                     className="iconbox me-4"
                     style={{ borderRadius: '20%', overflow: 'hidden', padding: '10px', background: '#f0f0f0' }}
                   >
-                    <i className="ri-rocket-2-fill"></i>
+                    <i className="ri-rocket-2-fill" aria-hidden="true"></i>
                   </div>
                   <div>
                     <h5>Receba notificações e participe de eventos</h5>
@@ -189,6 +197,7 @@ const Home = () => {
           </div>
         </section>
 
+        
         {/* COUNTER */}
         <section
           id="counter"
@@ -233,7 +242,7 @@ const Home = () => {
               <div className="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="150">
                 <div className="service theme-shadow p-lg-5 p-4 bg-light">
                   <div className="iconbox">
-                    <i className="fa-solid fa-map"></i>
+                    <i className="fa-solid fa-map"aria-hidden="true"></i>
                   </div>
                   <h5 className="mt-4 mb-3">Mapa Interativo</h5>
                   <p>Mostra locais de coleta próximos, filtrados por tipo de resíduo.</p>
@@ -243,7 +252,7 @@ const Home = () => {
               <div className="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="250">
                 <div className="service theme-shadow p-lg-5 p-4 bg-light">
                   <div className="iconbox">
-                    <i className="fa-solid fa-file-contract"></i>
+                    <i className="fa-solid fa-file-contract"aria-hidden="true"></i>
                   </div>
                   <h5 className="mt-4 mb-3">Informações sobre Reciclagem</h5>
                   <p>Contagem de coletas por.</p>
@@ -253,7 +262,7 @@ const Home = () => {
               <div className="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="350">
                 <div className="service theme-shadow p-lg-5 p-4 bg-light">
                   <div className="iconbox">
-                    <i className="fa-solid fa-calendar-days"></i>
+                    <i className="fa-solid fa-calendar-days" aria-hidden="true"></i>
                   </div>
                   <h5 className="mt-4 mb-3">Agenda de Coleta e Eventos</h5>
                   <p>Informações sobre mutirões de reciclagem e feiras ecológicas.</p>
@@ -263,7 +272,7 @@ const Home = () => {
               <div className="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="450">
                 <div className="service theme-shadow p-lg-5 p-4 bg-light">
                   <div className="iconbox">
-                    <i className="fa-solid fa-users"></i>
+                    <i className="fa-solid fa-users" aria-hidden="true"></i>
                   </div>
                   <h5 className="mt-4 mb-3">Cadastro de Usuário</h5>
                   <p>Ao se cadastrar pode-se solicitar pontos novos de coleta.</p>
@@ -283,7 +292,7 @@ const Home = () => {
               <div className="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="650">
                 <div className="service theme-shadow p-lg-5 p-4 bg-light">
                   <div className="iconbox">
-                    <i className="fa-solid fa-magnifying-glass-location"></i>
+                    <i className="fa-solid fa-magnifying-glass-location" aria-hidden="true"></i>
                   </div>
                   <h5 className="mt-4 mb-3">Denúncias e Solicitações</h5>
                   <p>
@@ -314,7 +323,7 @@ const Home = () => {
                     <img src="/img/project-1.png" alt="Projeto 1"/>
                   </div>
                   <a href="/assets/images/project-1.png" data-fancybox="gallery" className="iconbox">
-                    <i className="ri-search-2-line"></i>
+                    <i className="ri-search-2-line" aria-hidden="true"></i>
                   </a>
                 </div>
                 <div className="portfolio-item image-zoom mt-4">
@@ -322,7 +331,7 @@ const Home = () => {
                     <img src="/img/project-2.png" alt="Projeto 2" />
                   </div>
                   <a href="/assets/images/project-2.png" data-fancybox="gallery" className="iconbox">
-                    <i className="ri-search-2-line"></i>
+                    <i className="ri-search-2-line" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -332,7 +341,7 @@ const Home = () => {
                     <img src="/img/project-3.png" alt="Projeto 3" />
                   </div>
                   <a href="/img/project-3.png" data-fancybox="gallery" className="iconbox">
-                    <i className="ri-search-2-line"></i>
+                    <i className="ri-search-2-line" aria-hidden="true"></i>
                   </a>
                 </div>
                 <div className="portfolio-item image-zoom mt-4">
@@ -340,7 +349,7 @@ const Home = () => {
                     <img src="/img/project-4.png" alt="Projeto 4" />
                   </div>
                   <a href="/img/project-4.png" data-fancybox="gallery" className="iconbox">
-                    <i className="ri-search-2-line"></i>
+                    <i className="ri-search-2-line" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -357,7 +366,7 @@ const Home = () => {
                     data-fancybox="gallery"
                     className="iconbox"
                   >
-                    <i className="ri-search-2-line"></i>
+                    <i className="ri-search-2-line" aria-hidden="true"></i>
                   </a>
                 </div>
                 <div className="portfolio-item image-zoom mt-4">
@@ -365,7 +374,7 @@ const Home = () => {
                     <img src="/img/project-6.png" alt="Projeto 6" />
                   </div>
                   <a href="/img/project-6.png" data-fancybox="gallery" className="iconbox">
-                    <i className="ri-search-2-line"></i>
+                    <i className="ri-search-2-line" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -386,7 +395,7 @@ const Home = () => {
                   <p>ECO CITY sempre buscando o melhor pra você e para o Mundo.</p>
                   <div className="social-icons">
                     <a href="https://github.com/GabrielGedolin/eco-city-2.git">
-                      <i className="ri-github-fill"></i>
+                      <i className="ri-github-fill" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -453,9 +462,9 @@ const Home = () => {
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script src="https://kit.fontawesome.com/3a47ab78fd.js"></script>
-      </body>
+      </main>
     </>
   );
 };
 
-export default Home;
+export default withAuth(Home);

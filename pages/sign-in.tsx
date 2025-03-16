@@ -1,7 +1,56 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function LoginPage() {
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    // Função para navegação programática
+    const handleLogin = async () => {
+        if (!email || !password) {
+            setError('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        setLoading(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                // Salva o token no localStorage
+                localStorage.setItem('token', result.token);
+                console.log('Token salvo:', result.token); // Debug
+                // Redireciona para a página principal
+                router.push('/');
+            } else {
+                throw new Error(result.error || 'Erro ao fazer login');
+            }
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Erro desconhecido');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleViewMore = () => {
+        router.push('/index');
+    };
+
     return (
         <>
             <Head>
@@ -15,48 +64,45 @@ export default function LoginPage() {
                     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
                     crossOrigin="anonymous"
                 />
-                <link rel="stylesheet" href="/assets/css/style.css" />
+               
             </Head>
 
             {/* Main Container */}
             <div className="container d-flex justify-content-center align-items-center min-vh-100">
-                
                 {/* Login Container */}
                 <div className="row border rounded-5 p-3 bg-white shadow box-area">
-
                     {/* Left Box */}
                     <div
-                    className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-                    style={{ 
-                        zIndex: 3, // z-index como número (não precisa de aspas)
-                        backgroundImage: 'url(/img/background.jpg)', // Caminho da imagem de fundo
-                        backgroundSize: 'cover', // Garante que a imagem cubra todo o espaço
-                        backgroundPosition: 'center', // Centraliza a imagem de fundo
-                        position: 'relative', // Permite o uso de z-index
-                        minHeight: '400px' // Define uma altura mínima para o container
-                    }}
-                >
-                    {/* Container para o conteúdo */}
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12 text-center"> {/* Centraliza o conteúdo */}
-                                {/* Título "Eco City" */}
-                                <h1 
-                                    data-aos="fade-left" // Animação com AOS
-                                    style={{ 
-                                        zIndex: 10, // z-index maior para garantir que fique acima
-                                        color: "#fff", // Cor do texto (branco)
-                                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" // Sombra para melhorar a legibilidade
-                                    }} 
-                                    className="text-uppercase fw-semibold display-5"
-                                >
-                                    Eco City
-                                </h1>
+                        id="imagem"
+                        className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+                        style={{
+                            zIndex: 3,
+                            backgroundImage: 'url(/img/background.jpg)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            position: 'relative',
+                            minHeight: '400px',
+                        }}
+                    >
+                        {/* Container para o conteúdo */}
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-12 text-center">
+                                    <h1
+                                        data-aos="fade-left"
+                                        style={{
+                                            zIndex: 10,
+                                            color: '#fff',
+                                            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                                        }}
+                                        className="text-uppercase fw-semibold display-5"
+                                    >
+                                        Eco City
+                                    </h1>
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
-                </div>
 
                     {/* Right Box */}
                     <div className="col-md-6 right-box">
@@ -73,6 +119,8 @@ export default function LoginPage() {
                                     type="text"
                                     className="form-control form-control-lg bg-light fs-6"
                                     placeholder="Email address"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div className="input-group mb-1">
@@ -80,6 +128,8 @@ export default function LoginPage() {
                                     type="password"
                                     className="form-control form-control-lg bg-light fs-6"
                                     placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
                             <div className="input-group mb-5 d-flex justify-content-between">
@@ -101,10 +151,10 @@ export default function LoginPage() {
                                     data-aos-delay="50"
                                     className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
                                     style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%' }}
+                                    onClick={handleLogin}
+                                    disabled={loading}
                                 >
-                                    <Link href="/index" style={{ color: 'rgb(255, 255, 255)' }}>
-                                        Login
-                                    </Link>
+                                    {loading ? 'Carregando...' : 'Login'}
                                 </button>
                             </div>
                             <div className="input-group mb-3">
@@ -113,10 +163,9 @@ export default function LoginPage() {
                                     data-aos-delay="50"
                                     className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
                                     style={{ backgroundColor: 'rgb(0, 0, 0)', borderRadius: '5%' }}
+                                    onClick={handleViewMore}
                                 >
-                                    <Link href="/index" style={{ color: 'rgb(255, 255, 255)' }}>
-                                        Ver Mais
-                                    </Link>
+                                    Ver Mais
                                 </button>
                             </div>
                             <div className="row">
@@ -129,7 +178,17 @@ export default function LoginPage() {
                 </div>
             </div>
 
-            <script src="https://kit.fontawesome.com/3a47ab78fd.js" crossOrigin="anonymous"></script>
+            {/* Exibir dados ou erros */}
+            {loading && <p>Carregando...</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+
+            <style jsx>{`
+                @media (max-width: 768px) {
+                    #imagem {
+                        display: none;
+                    }
+                }
+            `}</style>
         </>
     );
 }

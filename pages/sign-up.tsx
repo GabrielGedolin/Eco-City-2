@@ -1,7 +1,52 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function SignUpPage() {
+    const router = useRouter();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Validação básica
+        if (password !== confirmPassword) {
+            setError('As senhas não coincidem.');
+            return;
+        }
+
+        setLoading(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password }),
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || 'Erro ao cadastrar usuário.');
+            }
+
+            // Redireciona para a página de login após o cadastro
+            router.push('/sign-in');
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Erro ao cadastrar usuário.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <>
             <Head>
@@ -49,55 +94,71 @@ export default function SignUpPage() {
                                 <p>Junte-se a nós e comece sua jornada.</p>
                             </div>
 
-                            {/* Nome Completo */}
-                            <div className="input-group mb-3">
-                                <input
-                                    type="text"
-                                    className="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Nome completo"
-                                />
-                            </div>
+                            {/* Formulário de Cadastro */}
+                            <form onSubmit={handleSubmit}>
+                                {/* Nome Completo */}
+                                <div className="input-group mb-3">
+                                    <input
+                                        type="text"
+                                        className="form-control form-control-lg bg-light fs-6"
+                                        placeholder="Nome completo"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        required
+                                    />
+                                </div>
 
-                            {/* Email */}
-                            <div className="input-group mb-3">
-                                <input
-                                    type="email"
-                                    className="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Email"
-                                />
-                            </div>
+                                {/* Email */}
+                                <div className="input-group mb-3">
+                                    <input
+                                        type="email"
+                                        className="form-control form-control-lg bg-light fs-6"
+                                        placeholder="Email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
 
-                            {/* Senha */}
-                            <div className="input-group mb-3">
-                                <input
-                                    type="password"
-                                    className="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Senha"
-                                />
-                            </div>
+                                {/* Senha */}
+                                <div className="input-group mb-3">
+                                    <input
+                                        type="password"
+                                        className="form-control form-control-lg bg-light fs-6"
+                                        placeholder="Senha"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
 
-                            {/* Confirmar Senha */}
-                            <div className="input-group mb-3">
-                                <input
-                                    type="password"
-                                    className="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Confirmar senha"
-                                />
-                            </div>
+                                {/* Confirmar Senha */}
+                                <div className="input-group mb-3">
+                                    <input
+                                        type="password"
+                                        className="form-control form-control-lg bg-light fs-6"
+                                        placeholder="Confirmar senha"
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
 
-                            {/* Botão de Cadastro */}
-                            <div className="input-group mb-3">
-                                <button
-                                    data-aos="fade-up"
-                                    data-aos-delay="50"
-                                    className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
-                                    style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%' }}
-                                >
-                                    <Link href="/dashboard" style={{ color: 'rgb(255, 255, 255)' }}>
-                                        Cadastrar
-                                    </Link>
-                                </button>
-                            </div>
+                                {/* Mensagem de Erro */}
+                                {error && <p style={{ color: 'red' }}>{error}</p>}
+
+                                {/* Botão de Cadastro */}
+                                <div className="input-group mb-3">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
+                                        style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%' }}
+                                        disabled={loading}
+                                    >
+                                        {loading ? 'Cadastrando...' : 'Cadastrar'}
+                                    </button>
+                                </div>
+                            </form>
 
                             {/* Link para Login */}
                             <div className="row">
@@ -113,4 +174,4 @@ export default function SignUpPage() {
             <script src="https://kit.fontawesome.com/3a47ab78fd.js" crossOrigin="anonymous"></script>
         </>
     );
-}
+}   

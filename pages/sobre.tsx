@@ -37,7 +37,7 @@ export default function SobrePage() {
                     <div className="mb-4 text-content">
                         <h3>Nossa História</h3>
                         <p>
-                            A Eco City foi fundada em 2010 por uma dupla de desenvolvedores apaixonados por tecnologia e sustentabilidade. Desde então, temos trabalhado incansavelmente para transformar cidades em ambientes mais verdes, inteligentes e eficientes. Nossa jornada começou com um pequeno projeto piloto e hoje impactamos mais de 100 cidades ao redor do mundo.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa perferendis cumque molestias ex quod, quia sint, debitis nobis cupiditate quo, sed ut. Quis, saepe minus nostrum dolores quo autem blanditiis!
                         </p>
                     </div>
 
@@ -89,7 +89,7 @@ export default function SobrePage() {
                                             className="img-fluid rounded-circle mb-3"
                                             style={{ width: '150px', height: '150px', objectFit: 'cover' }}
                                         />
-                                        <h4>Gabriel</h4>
+                                        <h4>Gabriel Gedolin</h4>
                                         <p className="text-muted">Co-Fundador e Desenvolvedor</p>
                                         <p>
                                         </p>
@@ -103,8 +103,7 @@ export default function SobrePage() {
                     <div className="mb-4 text-content">
                         <h3>O Que Nos Torna Únicos</h3>
                         <p>
-                            Utilizamos tecnologia de ponta e metodologias inovadoras para garantir resultados eficientes e sustentáveis. Nossos projetos já impactaram positivamente mais de 100 cidades ao redor do mundo.
-                        </p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, consequatur possimus soluta earum expedita est deserunt esse dolore deleniti, hic, quae harum recusandae culpa sequi sed dolores itaque laborum quas.                        </p>
                     </div>
 
                     {/* Parcerias */}

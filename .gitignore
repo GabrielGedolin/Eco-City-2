@@ -6,7 +6,7 @@
 # Ambiente de desenvolvimento
 /.next
 /out
-
+.env
 # Arquivos de ambiente
 .env*.local
 .env
