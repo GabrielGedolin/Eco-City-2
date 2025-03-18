@@ -11,8 +11,8 @@ const MapComponent = () => {
       minZoom: 17, // Zoom mínimo permitido
       maxZoom: 19, // Zoom máximo permitido
       maxBounds: L.latLngBounds(
-        [-22.122, -51.408], // Canto superior esquerdo
-        [-22.119, -51.403] // Canto inferior direito
+        [-22.12035889198807, -51.38949783562705], // Canto superior esquerdo
+        [-22.12035889198807, -51.38949783562705] // Canto inferior direito
       ),
       maxBoundsViscosity: 1.0, // Evita que o mapa "escape" dos limites
     });
