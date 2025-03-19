@@ -6,13 +6,13 @@ const MapComponent = () => {
   useEffect(() => {
     // Inicializa o mapa apenas no cliente
     const map = L.map('map', {
-      center: [-22.12035889198807, -51.38949783562705], // Coordenadas do SENAI
+      center: [-22.12035889198807, -51.38949783562705], // Coordenadas centrais de Presidente Prudente
       zoom: 17, // Zoom inicial
-      minZoom: 17, // Zoom mínimo permitido
-      maxZoom: 19, // Zoom máximo permitido
+      minZoom: 30, // Zoom mínimo permitido
+      maxZoom: 40, // Zoom máximo permitido
       maxBounds: L.latLngBounds(
-        [-22.12035889198807, -51.38949783562705], // Canto superior esquerdo
-        [-22.12035889198807, -51.38949783562705] // Canto inferior direito
+        [-22.1600, -51.4500], // Canto sudoeste
+        [-22.0800, -51.3500]  // Canto nordeste
       ),
       maxBoundsViscosity: 1.0, // Evita que o mapa "escape" dos limites
     });
