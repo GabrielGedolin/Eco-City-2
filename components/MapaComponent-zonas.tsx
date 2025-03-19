@@ -7,9 +7,9 @@ const MapComponent = () => {
     // Inicializa o mapa apenas no cliente
     const map = L.map('map', {
       center: [-22.12035889198807, -51.38949783562705], // Coordenadas centrais de Presidente Prudente
-      zoom: 25, // Zoom inicial
-      minZoom: 25, // Zoom mínimo permitido
-      maxZoom: 40, // Zoom máximo permitido
+      zoom: 17, // Zoom inicial
+       minZoom: 17, // Zoom mínimo permitido
+       maxZoom: 19, // Zoom máximo permitido
       maxBounds: L.latLngBounds(
         [-22.1600, -51.4500], // Canto sudoeste
         [-22.0800, -51.3500]  // Canto nordeste
