@@ -60,35 +60,18 @@ export default function SignUpPage() {
                     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
                     crossOrigin="anonymous"
                 />
-                <link rel="stylesheet" href="/assets/css/style.css" />
             </Head>
 
             {/* Main Container */}
             <div className="container d-flex justify-content-center align-items-center min-vh-100">
                 {/* Sign Up Container */}
-                <div className="row border rounded-5 p-3 bg-white shadow box-area">
-                    {/* Left Box */}
-                    <div
-                        className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-                        style={{ background: 'url(/img/background.jpg) no-repeat center center/cover', backgroundColor: '#f0f0f0' }}
-                    >
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-12">
-                                    <h1 data-aos="fade-left" className="text-uppercase text-gradient3 fw-semibold display-5">
-                                        Eco City
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div className="row border rounded-5 p-3 bg-white shadow box-area" style={{ maxWidth: '800px', width: '100%' }}>
                     {/* Right Box */}
-                    <div className="col-md-6 right-box">
+                    <div className="col-md-12 right-box">
                         <div className="row align-items-center">
-                            <div className="header-text mb-4">
+                            <div className="header-text mb-4 text-center">
                                 <Link className="navbar-brand" href="/">
-                                    <img src="/img/Logo1.png" alt="" />
+                                    <img src="/img/Logo (2).png" alt="Logo" style={{ width: '40px', height: 'auto' }} />
                                 </Link>
                                 <h2>Crie sua conta!</h2>
                                 <p>Junte-se a nós e comece sua jornada.</p>
@@ -145,14 +128,14 @@ export default function SignUpPage() {
                                 </div>
 
                                 {/* Mensagem de Erro */}
-                                {error && <p style={{ color: 'red' }}>{error}</p>}
+                                {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
 
                                 {/* Botão de Cadastro */}
                                 <div className="input-group mb-3">
                                     <button
                                         type="submit"
                                         className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
-                                        style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%' }}
+                                        style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%', color: 'white' }}
                                         disabled={loading}
                                     >
                                         {loading ? 'Cadastrando...' : 'Cadastrar'}
@@ -161,9 +144,12 @@ export default function SignUpPage() {
                             </form>
 
                             {/* Link para Login */}
-                            <div className="row">
+                            <div className="row text-center">
                                 <small>
-                                    Já tem uma conta? <Link href="/sign-in">Faça login</Link>
+                                    Já tem uma conta?{' '}
+                                    <Link href="/sign-in" className="link-gradient">
+                                        Faça login
+                                    </Link>
                                 </small>
                             </div>
                         </div>
@@ -171,7 +157,48 @@ export default function SignUpPage() {
                 </div>
             </div>
 
-            <script src="https://kit.fontawesome.com/3a47ab78fd.js" crossOrigin="anonymous"></script>
+            <style jsx>{`
+                .box-area {
+                    max-width: 800px;
+                    width: 100%;
+                }
+
+                .btn-brand2 {
+                    transition: background-color 0.3s ease;
+                }
+
+                .btn-brand2:hover {
+                    opacity: 0.9;
+                }
+
+                .link-gradient {
+                    background: linear-gradient(45deg, rgb(12, 129, 28), rgb(0, 0, 0));
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent;
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: opacity 0.3s ease;
+                }
+
+                .link-gradient:hover {
+                    opacity: 0.8;
+                }
+
+                @media (max-width: 768px) {
+                    .box-area {
+                        padding: 20px;
+                    }
+
+                    .header-text h2 {
+                        font-size: 1.5rem;
+                    }
+
+                    .header-text p {
+                        font-size: 0.9rem;
+                    }
+                }
+            `}</style>
         </>
     );
-}   
+}

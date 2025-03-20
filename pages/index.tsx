@@ -4,10 +4,9 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import withAuth from '../components/withAuth';
 import 'aos/dist/aos.css';
-import AOS from 'aos'; // Importação correta do AOS
+import AOS from 'aos';
+import withAuth from '../components/withAuth';
 
 // Carrega o componente do mapa dinamicamente (apenas no cliente)
 const MapComponent = dynamic(() => import('../components/MapaComponent-zonas'), { ssr: false });
@@ -37,7 +36,7 @@ const Home = () => {
         <title>ECO CITY</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/img/Logo1.png" /> {/* Caminho corrigido */}
+        <link rel="icon" href="/img/Logo1.png" />
       </Head>
 
       {/* Scripts usando o componente <Script> do Next.js */}

@@ -10,7 +10,6 @@ export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // Função para navegação programática
     const handleLogin = async () => {
         if (!email || !password) {
             setError('Por favor, preencha todos os campos.');
@@ -32,10 +31,7 @@ export default function LoginPage() {
             const result = await response.json();
 
             if (response.ok) {
-                // Salva o token no localStorage
                 localStorage.setItem('token', result.token);
-                console.log('Token salvo:', result.token); // Debug
-                // Redireciona para a página principal
                 router.push('/');
             } else {
                 throw new Error(result.error || 'Erro ao fazer login');
@@ -64,52 +60,18 @@ export default function LoginPage() {
                     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
                     crossOrigin="anonymous"
                 />
-               
             </Head>
 
             {/* Main Container */}
             <div className="container d-flex justify-content-center align-items-center min-vh-100">
                 {/* Login Container */}
-                <div className="row border rounded-5 p-3 bg-white shadow box-area">
-                    {/* Left Box */}
-                    <div
-                        id="imagem"
-                        className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-                        style={{
-                            zIndex: 3,
-                            backgroundImage: 'url(/img/background.jpg)',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            position: 'relative',
-                            minHeight: '400px',
-                        }}
-                    >
-                        {/* Container para o conteúdo */}
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-12 text-center">
-                                    <h1
-                                        data-aos="fade-left"
-                                        style={{
-                                            zIndex: 10,
-                                            color: '#fff',
-                                            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-                                        }}
-                                        className="text-uppercase fw-semibold display-5"
-                                    >
-                                        Eco City
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div className="row border rounded-5 p-3 bg-white shadow box-area" style={{ maxWidth: '800px', width: '100%' }}>
                     {/* Right Box */}
-                    <div className="col-md-6 right-box">
+                    <div className="col-md-12 right-box">
                         <div className="row align-items-center">
-                            <div className="header-text mb-4">
+                            <div className="header-text mb-4 text-center">
                                 <Link className="navbar-brand" href="/">
-                                    <img src="/img/Logo1.png" alt="" />
+                                    <img src="/img/LOGO (2).png" alt="Logo" style={{ width: '40px', height: 'auto' }} />
                                 </Link>
                                 <h2>Bem Vindo!</h2>
                                 <p>We are happy to have you back.</p>
@@ -147,28 +109,16 @@ export default function LoginPage() {
                             </div>
                             <div className="input-group mb-3">
                                 <button
-                                    data-aos="fade-up"
-                                    data-aos-delay="50"
                                     className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
-                                    style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%' }}
+                                    style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%', color: 'white' }}
                                     onClick={handleLogin}
                                     disabled={loading}
                                 >
                                     {loading ? 'Carregando...' : 'Login'}
                                 </button>
                             </div>
-                            <div className="input-group mb-3">
-                                <button
-                                    data-aos="fade-up"
-                                    data-aos-delay="50"
-                                    className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
-                                    style={{ backgroundColor: 'rgb(0, 0, 0)', borderRadius: '5%' }}
-                                    onClick={handleViewMore}
-                                >
-                                    Ver Mais
-                                </button>
-                            </div>
-                            <div className="row">
+                            
+                            <div className="row text-center">
                                 <small>
                                     Don't have account? <Link href="/sign-up">Sign Up</Link>
                                 </small>
@@ -180,12 +130,33 @@ export default function LoginPage() {
 
             {/* Exibir dados ou erros */}
             {loading && <p>Carregando...</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
 
-            <style jsx>{`
+            <style jsx>{` 
+                .box-area {
+                    max-width: 800px;
+                    width: 100%;
+                }
+
+                .btn-brand2 {
+                    transition: background-color 0.3s ease;
+                }
+
+                .btn-brand2:hover {
+                    opacity: 0.9;
+                }
+
                 @media (max-width: 768px) {
-                    #imagem {
-                        display: none;
+                    .box-area {
+                        padding: 20px;
+                    }
+
+                    .header-text h2 {
+                        font-size: 1.5rem;
+                    }
+
+                    .header-text p {
+                        font-size: 0.9rem;
                     }
                 }
             `}</style>
