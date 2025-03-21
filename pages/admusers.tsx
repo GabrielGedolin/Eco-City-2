@@ -71,48 +71,28 @@ export default function LoginPage() {
             <Script src="script/script.js" />
 
 
-                <nav className="navbar navbar-expand-lg sticky-top bg-light bg-opacity-50">
-                <div className="container">
-                    <Link href="/" passHref className="navbar-brand">
-                    <img src="/img/Logo1.png" alt="ECO CITY Logo" />
-                    </Link>
-                    <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    >
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto">
-                        <li className="nav-item">
-                        <Link className="nav-link" href="/sobre">
-                            Sobre
-                        </Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link className="nav-link" href="/mapa">
-                            Mapa
-                        </Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link className="nav-link" href="/sign-in">
-                            Sing In
-                        </Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link className="nav-link" href="/sign-up">
-                            Sing Up
-                        </Link>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                </nav>
+            <main data-bs-spy="scroll" data-bs-target=".navbar">
+                 <nav className="navbar navbar-expand-lg sticky-top bg-light bg-opacity-50">
+                     <div className="container-fluid">
+                         <a className="navbar-brand" href="#">
+                             <img src="assets/images/logo1.png" alt="" />
+                         </a>
+                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                             <span className="navbar-toggler-icon"></span>
+                         </button>
+                         <div className="collapse navbar-collapse" id="navbarNav">
+                             <ul className="navbar-nav ms-auto">
+                                 <li className="nav-item"><a className="nav-link" href="#hero">Home</a></li>
+                                 <li className="nav-item"><a className="nav-link" href="#about">Sobre</a></li>
+                                 <li className="nav-item"><a className="nav-link" href="#team">Equipe</a></li>
+                                 <li className="nav-item"><a className="nav-link" href="#contact">Sign in</a></li>
+                                 <li className="nav-item"><a className="nav-link" href="#blog">Sign up</a></li>
+                                 <li className="nav-item"><a className="nav-link" href="users.html">Usuários</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </nav>
 
                 <div className="container-fluid vh-100">
                     <main>
