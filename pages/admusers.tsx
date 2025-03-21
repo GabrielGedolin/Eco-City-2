@@ -70,136 +70,135 @@ export default function LoginPage() {
             <Script src="https://unpkg.com/aos@next/dist/aos.js" />
             <Script src="script/script.js" />
 
-            {/* NAVBAR */}
-            <nav className="navbar navbar-expand-lg sticky-top bg-light bg-opacity-50">
+
+                <nav className="navbar navbar-expand-lg sticky-top bg-light bg-opacity-50">
                 <div className="container">
                     <Link href="/" passHref className="navbar-brand">
-                        <img src="/img/Logo1.png" alt="ECO CITY Logo" />
+                    <img src="/img/Logo1.png" alt="ECO CITY Logo" />
                     </Link>
                     <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto">
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/sobre">
-                                    Sobre
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/mapa">
-                                    Mapa
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/sign-in">
-                                    Sing In
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/sign-up">
-                                    Sing Up
-                                </Link>
-                            </li>
-                        </ul>
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                        <Link className="nav-link" href="/sobre">
+                            Sobre
+                        </Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link className="nav-link" href="/mapa">
+                            Mapa
+                        </Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link className="nav-link" href="/sign-in">
+                            Sing In
+                        </Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link className="nav-link" href="/sign-up">
+                            Sing Up
+                        </Link>
+                        </li>
+                    </ul>
                     </div>
                 </div>
-            </nav>
+                </nav>
 
-            <div className="container-fluid vh-100">
-                <main>
-                    <h1 id="title-t" className="text-uppercase btn-brand text-gradient fw-semibold display-5">Usuários</h1>
+                <div className="container-fluid vh-100">
+                    <main>
+                        <h1 id="title-t" className="text-uppercase btn-brand text-gradient fw-semibold display-5">Usuários</h1>
 
-                    <table className="table table-sm table-striped mt-3">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Senha</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tb-localizacao">
-                        </tbody>
-                    </table>
-                    <div className="row justify-content-end mx-2">
-                        <a className="btn btn-sm btn-brand2 w-25" href="cadastro.html">Novo</a>
-                    </div>
-                </main>
-            </div>
+                        <table className="table table-sm table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Senha</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tb-localizacao">
+                            </tbody>
+                        </table>
+                        <div className="row justify-content-end mx-2">
+                            <a className="btn btn-sm btn-brand2 w-25" href="cadastro.html">Novo</a>
+                        </div>
+                    </main>
+                </div>
 
-            <footer className="bg-dark">
-                <div className="footer-top">
-                    <div className="container">
-                        <div className="row gy-5">
-                            <div className="col-lg-3 col-sm-6">
-                                <a href="#"><img src="./assets/images/icon.png" alt="" /></a>
-                                <div className="line"></div>
-                                <p>ECO SCHOOL sempre buscando o melhor pra você e para o Mundo.</p>
-                                <div className="social-icons">
-                                    <a href="https://github.com/gualvesx/TCC.git"><i className="ri-github-fill"></i></a>
+                <footer className="bg-dark">
+                    <div className="footer-top">
+                        <div className="container">
+                            <div className="row gy-5">
+                                <div className="col-lg-3 col-sm-6">
+                                    <a href="#"><img src="./assets/images/icon.png" alt="" /></a>
+                                    <div className="line"></div>
+                                    <p>ECO SCHOOL sempre buscando o melhor pra você e para o Mundo.</p>
+                                    <div className="social-icons">
+                                        <a href="https://github.com/gualvesx/TCC.git"><i className="ri-github-fill"></i></a>
+                                    </div>
+                                </div>
+                                <div className="col-lg-3 col-sm-6">
+                                    <h5 className="mb-0 text-white">SERVIÇOS</h5>
+                                    <div className="line"></div>
+                                    <ul>
+                                        <li><a href="#">Mapa Interativo</a></li>
+                                        <li><a href="#">Reciclagem</a></li>
+                                        <li><a href="#">Denúncias</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                    </ul>
+                                </div>
+                                <div className="col-lg-3 col-sm-6">
+                                    <h5 className="mb-0 text-white">SOBRE</h5>
+                                    <div className="line"></div>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">Serviçoes</a></li>
+                                        <li><a href="#">Compania</a></li>
+                                        <li><a href="#">Career</a></li>
+                                    </ul>
+                                </div>
+                                <div className="col-lg-3 col-sm-6">
+                                    <h5 className="mb-0 text-white">CONTATO</h5>
+                                    <div className="line"></div>
+                                    <ul>
+                                        <li>Presidente P.</li>
+                                        <li>(18) 98712 - 2539</li>
+                                        <li>gustavo.sesi.bol@gmail.com</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-sm-6">
-                                <h5 className="mb-0 text-white">SERVIÇOS</h5>
-                                <div className="line"></div>
-                                <ul>
-                                    <li><a href="#">Mapa Interativo</a></li>
-                                    <li><a href="#">Reciclagem</a></li>
-                                    <li><a href="#">Denúncias</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                </ul>
-                            </div>
-                            <div className="col-lg-3 col-sm-6">
-                                <h5 className="mb-0 text-white">SOBRE</h5>
-                                <div className="line"></div>
-                                <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Serviçoes</a></li>
-                                    <li><a href="#">Compania</a></li>
-                                    <li><a href="#">Career</a></li>
-                                </ul>
-                            </div>
-                            <div className="col-lg-3 col-sm-6">
-                                <h5 className="mb-0 text-white">CONTATO</h5>
-                                <div className="line"></div>
-                                <ul>
-                                    <li>Presidente P.</li>
-                                    <li>(18) 98712 - 2539</li>
-                                    <li>gustavo.sesi.bol@gmail.com</li>
-                                </ul>
+                        </div>
+                    </div>
+                    <div className="footer-bottom">
+                        <div className="container">
+                            <div className="row g-4 justify-content-between">
+                                <div className="col-auto">
+                                    <p className="mb-0">© Copyright ECO SCHOOL All Rights Reserved</p>
+                                </div>
+                                <div className="col-auto">
+                                    <p className="mb-0">Designed By GUSTAVO</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="footer-bottom">
-                    <div className="container">
-                        <div className="row g-4 justify-content-between">
-                            <div className="col-auto">
-                                <p className="mb-0">© Copyright ECO SCHOOL All Rights Reserved</p>
-                            </div>
-                            <div className="col-auto">
-                                <p className="mb-0">Designed By GUSTAVO</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </main >
+                </footer>
+            </main>
 
-            { loading && <p>Carregando...</p>
-}
-{ error && <p style={{ color: 'red' }}>{error}</p> }
+            {loading && <p>Carregando...</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
 
-<style jsx>{`
+            <style jsx>{`
                 @media (max-width: 768px) {
                     #imagem {
                         display: none;
