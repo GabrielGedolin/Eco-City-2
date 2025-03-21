@@ -43,10 +43,6 @@ export default function LoginPage() {
         }
     };
 
-    const handleViewMore = () => {
-        router.push('/index');
-    };
-
     return (
         <>
             <Head>
@@ -66,7 +62,6 @@ export default function LoginPage() {
             <div className="container d-flex justify-content-center align-items-center min-vh-100">
                 {/* Login Container */}
                 <div className="row border rounded-5 p-3 bg-white shadow box-area" style={{ maxWidth: '800px', width: '100%' }}>
-                    {/* Right Box */}
                     <div className="col-md-12 right-box">
                         <div className="row align-items-center">
                             <div className="header-text mb-4 text-center">
@@ -102,25 +97,31 @@ export default function LoginPage() {
                                     </label>
                                 </div>
                                 <div className="forgot">
+                                    {/* "Forgot Password?" link using Bootstrap classes */}
                                     <small>
-                                        <Link href="/recuperar-senha">Forgot Password?</Link>
+                                        <Link href="/recuperar-senha" className="text-decoration-none text-primary">
+                                            Forgot Password?
+                                        </Link>
                                     </small>
                                 </div>
                             </div>
                             <div className="input-group mb-3">
                                 <button
-                                    className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
-                                    style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%', color: 'white' }}
+                                    className="btn btn-lg w-100 fs-6 btn-success me-2"
                                     onClick={handleLogin}
                                     disabled={loading}
                                 >
                                     {loading ? 'Carregando...' : 'Login'}
                                 </button>
                             </div>
-                            
+
+                            {/* Sign Up link using Bootstrap classes */}
                             <div className="row text-center">
                                 <small>
-                                    Don't have account? <Link href="/sign-up">Sign Up</Link>
+                                    Don't have an account?{' '}
+                                    <Link href="/sign-up" className="text-decoration-none text-primary">
+                                        Sign Up
+                                    </Link>
                                 </small>
                             </div>
                         </div>
@@ -131,35 +132,6 @@ export default function LoginPage() {
             {/* Exibir dados ou erros */}
             {loading && <p>Carregando...</p>}
             {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-
-            <style jsx>{` 
-                .box-area {
-                    max-width: 800px;
-                    width: 100%;
-                }
-
-                .btn-brand2 {
-                    transition: background-color 0.3s ease;
-                }
-
-                .btn-brand2:hover {
-                    opacity: 0.9;
-                }
-
-                @media (max-width: 768px) {
-                    .box-area {
-                        padding: 20px;
-                    }
-
-                    .header-text h2 {
-                        font-size: 1.5rem;
-                    }
-
-                    .header-text p {
-                        font-size: 0.9rem;
-                    }
-                }
-            `}</style>
         </>
     );
 }
