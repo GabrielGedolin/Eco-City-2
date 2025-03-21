@@ -43,7 +43,7 @@ export default function UsersPage() {
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Email</th>
-                            <th>Senha</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -52,7 +52,7 @@ export default function UsersPage() {
                                 <td>{user.id}</td>
                                 <td>{user.nome}</td>
                                 <td>{user.email}</td>
-                                <td>{user.senha}</td>
+
                             </tr>
                         ))}
                     </tbody>
