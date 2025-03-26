@@ -1,8 +1,16 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
+// Definindo a interface para o tipo de usuário
+interface User {
+    id: number;
+    nome: string;
+    email: string;
+}
+
 export default function UsersPage() {
-    const [users, setUsers] = useState([]);
+    // Especificando o tipo de 'users' como um array de 'User'
+    const [users, setUsers] = useState<User[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
@@ -43,7 +51,6 @@ export default function UsersPage() {
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Email</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -52,7 +59,6 @@ export default function UsersPage() {
                                 <td>{user.id}</td>
                                 <td>{user.nome}</td>
                                 <td>{user.email}</td>
-
                             </tr>
                         ))}
                     </tbody>
