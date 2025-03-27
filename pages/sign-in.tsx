@@ -62,11 +62,11 @@ export default function LoginPage() {
                 />
             </Head>
 
-            {/* Main Container */}
+            {/* Container Principal */}
             <div className="container d-flex justify-content-center align-items-center min-vh-100">
-                {/* Login Container */}
+                {/* Container de Login */}
                 <div className="row border rounded-5 p-3 bg-white shadow box-area" style={{ maxWidth: '800px', width: '100%' }}>
-                    {/* Right Box */}
+                    {/* Box Direito */}
                     <div className="col-md-12 right-box">
                         <div className="row align-items-center">
                             <div className="header-text mb-4 text-center">
@@ -74,13 +74,13 @@ export default function LoginPage() {
                                     <img src="/img/LOGO (2).png" alt="Logo" style={{ width: '40px', height: 'auto' }} />
                                 </Link>
                                 <h2>Bem Vindo!</h2>
-                                <p>We are happy to have you back.</p>
+                                <p>Estamos felizes em te ver novamente.</p>
                             </div>
                             <div className="input-group mb-3">
                                 <input
                                     type="text"
                                     className="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Email address"
+                                    placeholder="Endereço de email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
@@ -89,7 +89,7 @@ export default function LoginPage() {
                                 <input
                                     type="password"
                                     className="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Password"
+                                    placeholder="Senha"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
@@ -98,12 +98,12 @@ export default function LoginPage() {
                                 <div className="form-check">
                                     <input type="checkbox" className="form-check-input" id="formCheck" />
                                     <label htmlFor="formCheck" className="form-check-label text-secondary">
-                                        <small>Remember Me</small>
+                                        <small>Lembrar de mim</small>
                                     </label>
                                 </div>
                                 <div className="forgot">
                                     <small>
-                                        <Link href="/recuperar-senha">Forgot Password?</Link>
+                                        <Link href="/recuperar-senha">Esqueceu a senha?</Link>
                                     </small>
                                 </div>
                             </div>
@@ -114,13 +114,13 @@ export default function LoginPage() {
                                     onClick={handleLogin}
                                     disabled={loading}
                                 >
-                                    {loading ? 'Carregando...' : 'Login'}
+                                    {loading ? 'Carregando...' : 'Entrar'}
                                 </button>
                             </div>
                             
                             <div className="row text-center">
                                 <small>
-                                    Don't have account? <Link href="/sign-up">Sign Up</Link>
+                                    Não tem uma conta? <Link href="/sign-up">Cadastre-se</Link>
                                 </small>
                             </div>
                         </div>

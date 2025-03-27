@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import withAuth from '../components/withAuth';
 
 const Zonas = () => {
   return (
@@ -367,4 +368,4 @@ const Zonas = () => {
   );
 };
 
-export default Zonas;
+export default withAuth(Zonas);

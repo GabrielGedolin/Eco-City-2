@@ -29,4 +29,5 @@ export default function authMiddleware(handler: (req: ExtendedNextApiRequest, re
       return res.status(401).json({ error: 'Token inválido ou expirado.' });
     }
   };
+  
 }

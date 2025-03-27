@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import withAuth from '../components/withAuth';
+
 
 // Carrega o componente do mapa dinamicamente (apenas no cliente)
 const MapComponent = dynamic(() => import('../components/MapaComponent-zonas'), { ssr: false });
@@ -36,7 +36,8 @@ const Home = () => {
         <title>ECO CITY</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/img/Logo1.png" />
+        <meta name="theme-color" content="#00FF00" />
+        <link rel="icon" href="/img/Logo (2).png" />
       </Head>
 
       {/* Scripts usando o componente <Script> do Next.js */}
@@ -466,4 +467,4 @@ const Home = () => {
   );
 };
 
-export default withAuth(Home);
+export default Home;
