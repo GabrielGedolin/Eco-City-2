@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Footer from '../components/footer';
+
 
 const Zonas = () => {
   return (
@@ -325,8 +325,7 @@ const Zonas = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+    
 
       {/* Estilos Personalizados */}
       <style jsx>{`
