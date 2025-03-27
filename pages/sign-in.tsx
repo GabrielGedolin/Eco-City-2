@@ -3,54 +3,50 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-export default function LoginPage() {
+export default function PaginaLogin() {
     const router = useRouter();
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const [carregando, setCarregando] = useState(false);
+    const [erro, setErro] = useState<string | null>(null);
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [senha, setSenha] = useState('');
 
-    const handleLogin = async () => {
-        if (!email || !password) {
-            setError('Por favor, preencha todos os campos.');
+    const fazerLogin = async () => {
+        if (!email || !senha) {
+            setErro('Por favor, preencha todos os campos.');
             return;
         }
 
-        setLoading(true);
-        setError(null);
+        setCarregando(true);
+        setErro(null);
 
         try {
-            const response = await fetch('/api/login', {
+            const resposta = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, senha }),
             });
 
-            const result = await response.json();
+            const resultado = await resposta.json();
 
-            if (response.ok) {
-                localStorage.setItem('token', result.token);
+            if (resposta.ok) {
+                localStorage.setItem('token', resultado.token);
                 router.push('/');
             } else {
-                throw new Error(result.error || 'Erro ao fazer login');
+                throw new Error(resultado.error || 'Erro ao fazer login');
             }
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Erro desconhecido');
+            setErro(err instanceof Error ? err.message : 'Erro desconhecido');
         } finally {
-            setLoading(false);
+            setCarregando(false);
         }
-    };
-
-    const handleViewMore = () => {
-        router.push('/index');
     };
 
     return (
         <>
             <Head>
-                <title>Login</title>
+                <title>Acesso</title>
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,7 +63,7 @@ export default function LoginPage() {
                 {/* Container de Login */}
                 <div className="row border rounded-5 p-3 bg-white shadow box-area" style={{ maxWidth: '800px', width: '100%' }}>
                     {/* Box Direito */}
-                    <div className="col-md-12 right-box">
+                    <div className="col-md-12 box-direito">
                         <div className="row align-items-center">
                             <div className="header-text mb-4 text-center">
                                 <Link className="navbar-brand" href="/">
@@ -90,14 +86,14 @@ export default function LoginPage() {
                                     type="password"
                                     className="form-control form-control-lg bg-light fs-6"
                                     placeholder="Senha"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={senha}
+                                    onChange={(e) => setSenha(e.target.value)}
                                 />
                             </div>
                             <div className="input-group mb-5 d-flex justify-content-between">
                                 <div className="form-check">
-                                    <input type="checkbox" className="form-check-input" id="formCheck" />
-                                    <label htmlFor="formCheck" className="form-check-label text-secondary">
+                                    <input type="checkbox" className="form-check-input" id="lembrar" />
+                                    <label htmlFor="lembrar" className="form-check-label text-secondary">
                                         <small>Lembrar de mim</small>
                                     </label>
                                 </div>
@@ -111,16 +107,16 @@ export default function LoginPage() {
                                 <button
                                     className="btn btn-lg w-100 fs-6 btn-brand2 me-2"
                                     style={{ backgroundColor: 'rgb(12, 129, 28)', borderRadius: '5%', color: 'white' }}
-                                    onClick={handleLogin}
-                                    disabled={loading}
+                                    onClick={fazerLogin}
+                                    disabled={carregando}
                                 >
-                                    {loading ? 'Carregando...' : 'Entrar'}
+                                    {carregando ? 'Carregando...' : 'Entrar'}
                                 </button>
                             </div>
                             
                             <div className="row text-center">
                                 <small>
-                                    Não tem uma conta? <Link href="/sign-up">Cadastre-se</Link>
+                                    Não tem uma conta? <Link href="/cadastro">Cadastre-se</Link>
                                 </small>
                             </div>
                         </div>
@@ -129,8 +125,8 @@ export default function LoginPage() {
             </div>
 
             {/* Exibir dados ou erros */}
-            {loading && <p>Carregando...</p>}
-            {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+            {carregando && <p>Carregando...</p>}
+            {erro && <p style={{ color: 'red', textAlign: 'center' }}>{erro}</p>}
 
             <style jsx>{` 
                 .box-area {

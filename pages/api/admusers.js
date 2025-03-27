@@ -1,29 +1,18 @@
-const { Client } = require('pg');
+import { neon } from '@neondatabase/serverless';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-async function removeUserById(userId) {
-    const client = new Client({
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false,
-        },
-    });
+const sql = neon(process.env.DATABASE_URL);
 
-    try {
-        await client.connect();
-        const res = await client.query('DELETE FROM users WHERE id = $1 RETURNING *;', [userId]);
-        
-        if (res.rowCount > 0) {
-            console.log('Usuário removido com sucesso:', res.rows[0]);
-        } else {
-            console.log('Nenhum usuário encontrado com o ID fornecido.');
+export default async function handler(req, res) {
+    if (req.method === 'GET') {
+        try {
+            const localizacoes = await sql`SELECT id, nome, email FROM localizacoes`;
+            res.status(200).json(localizacoes);
+        } catch (err) {
+            console.error('Erro ao buscar localizações:', err);
+            res.status(500).json({ error: 'Erro ao buscar localizações.' });
         }
-    } catch (err) {
-        console.error('Erro ao remover usuário:', err);
-    } finally {
-        await client.end();
+    } else {
+        res.status(405).json({ error: 'Método não permitido.' });
     }
 }
-
-// Exemplo de uso
-const userId = 1; // Substitua pelo ID desejado
-removeUserById(userId);

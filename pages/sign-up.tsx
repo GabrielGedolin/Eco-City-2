@@ -71,7 +71,7 @@ export default function SignUpPage() {
                         <div className="row align-items-center">
                             <div className="header-text mb-4 text-center">
                                 <Link className="navbar-brand" href="/">
-                                    <img src="/img/Logo (2).png" alt="Logo" style={{ width: '40px', height: 'auto' }} />
+                                    <img src="/img/Logo1.png" alt="Logo" style={{ width: '40px', height: 'auto' }} />
                                 </Link>
                                 <h2>Crie sua conta!</h2>
                                 <p>Junte-se a nós e comece sua jornada.</p>
